@@ -75,7 +75,6 @@ public final class Autobuild {
 
 		build(buildFiles, flags);
 		execute(mainClass);
-
 	}
 
 
