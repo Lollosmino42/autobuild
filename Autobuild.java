@@ -1,15 +1,15 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
-import java.util.HashSet;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Optional;
+
+import java.io.IOException;
+
 
 public final class Autobuild {
 	private static final Path CWD_PATH = Path.of(System.getProperty("user.dir"))
@@ -92,7 +92,7 @@ public final class Autobuild {
 		try {
 
 		{
-			Path cache = Path.of(CWD, AUTOBUILD_CACHE);
+			Path cache = CWD_PATH.resolve( AUTOBUILD_CACHE);
 
 			if ( Files.notExists(cache)) {
 				Files.createDirectory(cache);
@@ -108,7 +108,7 @@ public final class Autobuild {
 			}
 		}
 		{
-			Path bin = Path.of(CWD, AUTOBUILD_BIN);
+			Path bin = CWD_PATH.resolve( AUTOBUILD_BIN);
 
 			if (Files.notExists(bin)) {
 				Files.createDirectory(bin);
@@ -244,7 +244,7 @@ public final class Autobuild {
 	private static void cleanBin() { clean( CWD_PATH.resolve( AUTOBUILD_BIN)); }
 
 
-	public static void build(Set<Path> files, Set<String> flags) {
+	private static void build(Set<Path> files, Set<String> flags) {
 		
 		log("Building at ".concat(CWD));
 
