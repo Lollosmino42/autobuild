@@ -1,6 +1,14 @@
 # Compiled class file
 *.class
 
+# C server file thing
+.ccls
+.ccls-cache
+
+# Autobuild folders
+.autobuild-cache
+.autobuild-bin
+
 # Log file
 *.log
 
