@@ -37,7 +37,7 @@ void cmd_free(CMD *cmd) {
 
 int main(int argc, char **argv) {
 	CMD cmd = cmd_new(10);
-	cmd_append(&cmd, "java -jar Autobuild");
+	cmd_append(&cmd, "java -jar Autobuild.jar");
 
 	for (int i = 1; i < argc; ++i) {
 		cmd_append(&cmd, argv[i]);
